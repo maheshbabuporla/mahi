@@ -1,0 +1,26 @@
+# Compute factorial
+def fact_N(N): 
+    if(N == 0 or N == 1): 
+        fact = 1
+    else: 
+        fact = N * fact_N(N - 1) 
+    return fact 
+# Check for strong number 
+def strong_number(list): 
+    n_list =[]   
+    for i in list: 
+        temp_N = i 
+        sum = 0
+        while(temp_N): 
+            r = temp_N % 10
+            sum += fact_N(r) 
+            temp_N = temp_N // 10
+        if(sum == i): 
+            n_list.append(i) 
+        else: 
+            pass                
+    return n_list           
+# Input
+input_vals = [1, 2, 5, 121, 145, 788, 47, 193, 2100] 
+strong_num_list = strong_number(input_vals) 
+print(strong_num_list)
